@@ -1,24 +1,26 @@
-// Resets, Clearfix, etc
+@import 'partials/_clearfix';
+@import 'partials/_reset';
 
-// Variables
 
-// Media Query Ranges
+$dark : slategrey;
+$light : cornsilk ;
+$bright : coral;
+$padding : 10px;
 
-// Mixins
-
-// Styles
 body{
-  background-color: orange;
+  background-color: $bright;
   text-align: center;
   color: #EEE;
 }
 
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 28px
 }
 
 h1{
   padding: 20px;
+  color : $dark;
 }
 
 h2{
@@ -27,12 +29,65 @@ h2{
 
 
 .block_family{
-  max-width:350px;
+  max-width:250px;
   margin:auto;
 }
-
-.block_family li{
-  background-color: #222;
-  margin-bottom: 20px;
-  padding: 20px;
+.block_family li:hover{
+  color : $dark;
+  background-color: $light;
 }
+.block_family li{
+  color : $bright;
+  background-color: $dark;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+@media screen and(min-width : 600px){
+  body{
+    background-color : $dark;
+  }
+  .block_family li{
+    color : $dark;
+    background-color: $light;
+    display: inline-block;
+    min-width: 250px;
+  }
+  .block_family li:hover{
+    color : $light;
+    background-color: $bright;
+  }
+  h1 {
+    color: $light;
+  }
+  .block_family{
+    max-width:600px;
+  }
+}
+@media screen and(min-width : 900px){
+  body{
+    background-color : $light;
+  }
+  .block_family li{
+    color : $light;
+    background-color: $bright;
+    min-width: 250px
+  }
+  .block_family li:hover{
+    background-color: $dark;
+  }
+  h1 {
+    color : $bright;
+  }
+  .block_family li:nth-child(3n+2){
+    background-color : $dark;
+    color: $light;
+  }
+  .block_family li:hover:nth-child(3n+2){
+    background-color : $bright;
+  }
+  .block_family{
+    max-width: 900px;
+  }
+}
+
+
